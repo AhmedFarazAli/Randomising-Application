@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
+
 
 void main() {
   runApp(
@@ -38,15 +40,29 @@ class _RandommState extends State<Randomm > {
   int num=1;
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: RaisedButton(
-        onPressed: (){
-          setState(() {
-            num=Random().nextInt(5)+1;
-          });
-        },
-        child: Expanded(child: Image.asset('images/ball$num.png')),
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Center(
+          child: Image.asset('images/ball$num.png'),
+        ),
+        SizedBox(
+          child: Divider(
+            height: 5.0,
+          ),
+        ),
+        RaisedButton(
+          color: Colors.black45,
+          child: Text('Press Me'),
+          onPressed: (){
+            setState(() {
+              num=Random().nextInt(5)+1;
+            });
+          },
+        ),
+      ],
     );
   }
 }
+
+
